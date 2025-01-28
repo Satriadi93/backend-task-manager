@@ -68,7 +68,7 @@ mutation Mutation($username: String!, $password: String!) {
   login(username: $username, password: $password)
 }
 ```
-if invalid username or pw 
+if invalid username or pw <br>
 ![image](https://github.com/user-attachments/assets/bc74efe5-2976-4a32-aae5-b221e16203b4)
 
 After logging in, you will receive a token. This token is used as the *Authentication* header: `Bearer <token>` to access the application's CRUD functionality.
@@ -123,6 +123,19 @@ query getTaskById($taskId: ID!) {
 }
 ```
 ![image](https://github.com/user-attachments/assets/9bada9c8-fce8-4eb9-8ca2-5227dbc314b6)
+
+* Get Task by title
+  ```bash
+    query Query($title: String!) {
+  tasksByTitle(title: $title) {
+    title
+    task_duedate
+    task_status
+    user_id
+  }
+}
+  ```
+![image](https://github.com/user-attachments/assets/9ee438cd-015f-487c-b985-eb3f1037079e)
 
 * Update Task:
 ```bash
