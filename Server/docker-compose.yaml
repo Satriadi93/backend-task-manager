@@ -1,0 +1,28 @@
+version: '3.9'
+
+services:
+  node:
+    build: .
+    container_name: node-server
+    ports:
+      - "3000:3000"
+    restart: always
+    environment:
+      DB_HOST: mysql_db  
+  
+  mysql_db:
+    image: mariadb:10.11
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: notSecureChangeMe
+    ports:
+      - "3306:1626"
+    privileged: true
+
+  phpmyadmin:
+    image: phpmyadmin
+    restart: always
+    ports:
+      - "8181:80"
+    environment:
+      - PMA_ARBITRARY=1
