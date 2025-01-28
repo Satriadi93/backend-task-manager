@@ -1,5 +1,6 @@
 import Task from "../model/Task.js";
 import { checkLogin } from "../config/auth.js";
+import { Op } from "sequelize";
 
 const taskResolver = {
   Query: {
@@ -11,24 +12,29 @@ const taskResolver = {
       checkLogin(context);
       return await Task.findByPk(task_id);
     },
-    tasksByTitle: async (_, { title }) => {
+    tasksByTitle: async (_, { title }, context) => {
+      checkLogin(context);
       return await Task.findAll({
-          where: { title: { [Op.like]: `%${title}%` } },
+        where: {
+          title: {
+            [Op.like]: `%${title}%`,
+          },
+        },
       });
-  },
+    },
   },
 
   Task: {
     user: async (parent) => {
-        return await User.findByPk(parent.user_id);
+      return await User.findByPk(parent.user_id);
     },
   },
 
   Mutation: {
-    createTask: async (_, { title, task_duedate, task_status, description }, context) => {
+    createTask: async (_, { title, task_duedate, task_status, description, user_id }, context) => {
       checkLogin(context);
       try {
-        await Task.create({ title, task_duedate, task_status, description });
+        await Task.create({ title, task_duedate, task_status, description, user_id });
         return { message: "The created task object with a unique identifier" };
       } catch (error) {
         return { message: ` Create data filed : ${error.message}` };

@@ -16,7 +16,7 @@ const taskTypeDef = `#graphql
     }
 
     type Mutation{
-        createTask(title: String!, task_duedate: String!, task_status: String!, description: String!, user_id: String ) : ResponseMessage
+        createTask(title: String!, task_duedate: String!, task_status: String!, description: String!, user_id: String! ) : ResponseMessage
         updateTask(task_id: ID!, title: String!, task_duedate: String!, task_status: String!, description: String!, user_id: String ) : ResponseMessage
         deleteTask(task_id: ID!): ResponseMessage
     }
