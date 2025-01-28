@@ -61,7 +61,7 @@ mutation Mutation($username: String!, $password: String!) {
   }
 }
 ```
-![image](https://github.com/user-attachments/assets/69f386b8-d6a3-405c-9836-f302dfedb820)
+<p align="center"> <img src="https://github.com/user-attachments/assets/69f386b8-d6a3-405c-9836-f302dfedb820" width="600" /> </p> ```
 * Login:
 ```bash
 mutation Mutation($username: String!, $password: String!) {
@@ -69,10 +69,10 @@ mutation Mutation($username: String!, $password: String!) {
 }
 ```
 if invalid username or pw <br>
-![image](https://github.com/user-attachments/assets/bc74efe5-2976-4a32-aae5-b221e16203b4)
+<p align="center"> <img src="https://github.com/user-attachments/assets/bc74efe5-2976-4a32-aae5-b221e16203b4" width="600" /> </p>
 
 After logging in, you will receive a token. This token is used as the *Authentication* header: `Bearer <token>` to access the application's CRUD functionality.
-![image](https://github.com/user-attachments/assets/ce1bbfed-c71b-4002-b80c-15c406ab5a1f)
+<p align="center"> <img src="https://github.com/user-attachments/assets/ce1bbfed-c71b-4002-b80c-15c406ab5a1f" width="600" /> </p>
 
 * Logout
   ```bash
@@ -85,7 +85,7 @@ After logging in, you will receive a token. This token is used as the *Authentic
 
 #### Task CRUD Operations:
 ##### Before login
-![image](https://github.com/user-attachments/assets/724cc177-6da1-43f0-becb-40a5e286d9eb)
+<p align="center"> <img src="https://github.com/user-attachments/assets/724cc177-6da1-43f0-becb-40a5e286d9eb" width="600" /> </p>
 
 ##### After login
 * Create Task:
@@ -96,7 +96,7 @@ mutation createTask($title: String!, $taskDuedate: String!, $taskStatus: String!
   }
 }
 ```
-![image](https://github.com/user-attachments/assets/e8f1a635-1ae8-4ce7-b2d2-84df3a9943f9)
+<p align="center"> <img src="https://github.com/user-attachments/assets/e8f1a635-1ae8-4ce7-b2d2-84df3a9943f9" width="600" /> </p>
 
 * Get All Tasks:
 ```bash
@@ -122,20 +122,20 @@ query getTaskById($taskId: ID!) {
   }
 }
 ```
-![image](https://github.com/user-attachments/assets/9bada9c8-fce8-4eb9-8ca2-5227dbc314b6)
+<p align="center"> <img src="https://github.com/user-attachments/assets/9bada9c8-fce8-4eb9-8ca2-5227dbc314b6" width="600" /> </p> 
 
 * Get Task by title
   ```bash
-    query Query($title: String!) {
-  tasksByTitle(title: $title) {
-    title
-    task_duedate
-    task_status
-    user_id
+      query Query($title: String!) {
+    tasksByTitle(title: $title) {
+      title
+      task_duedate
+      task_status
+      user_id
+    }
   }
-}
   ```
-![image](https://github.com/user-attachments/assets/9ee438cd-015f-487c-b985-eb3f1037079e)
+<p align="center"> <img src="https://github.com/user-attachments/assets/9ee438cd-015f-487c-b985-eb3f1037079e" width="600" /> </p>
 
 * Update Task:
 ```bash
@@ -145,7 +145,7 @@ mutation {
   }
 }
 ```
-![image](https://github.com/user-attachments/assets/3efc54b6-e616-4467-887d-7adb640fde19)
+<p align="center"> <img src="https://github.com/user-attachments/assets/3efc54b6-e616-4467-887d-7adb640fde19" width="600" /> </p>
 
 * Delete Task:
 ```bash
@@ -155,7 +155,7 @@ mutation {
   }
 }
 ```
-![image](https://github.com/user-attachments/assets/8bcc603a-280c-4613-be95-38c09aed566a)
+<p align="center"> <img src="https://github.com/user-attachments/assets/8bcc603a-280c-4613-be95-38c09aed566a" width="600" /> </p> 
 
 
 
