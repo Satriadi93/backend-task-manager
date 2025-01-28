@@ -1,4 +1,4 @@
-version: '3.9'
+version: "3.9"
 
 services:
   node:
@@ -8,8 +8,8 @@ services:
       - "3000:3000"
     restart: always
     environment:
-      DB_HOST: mysql_db  
-  
+      DB_HOST: mysql_db
+
   mysql_db:
     image: mariadb:10.11
     restart: always

@@ -4,14 +4,14 @@ import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 import dotenv from "dotenv";
 
-dotenv.config()
+dotenv.config();
 const SECRET_KEY = process.env.SECRET_KEY;
 const tokens = new Set();
 
 const userResolver = {
   Query: {
     getUsers: async (_, __, context) => {
-      checkLogin(context); 
+      checkLogin(context);
       return await User.findAll();
     },
   },
@@ -27,9 +27,9 @@ const userResolver = {
       const hashedPassword = await bcrypt.hash(password, 10);
       try {
         await User.create({ username, password: hashedPassword });
-        return { message: "account has been created"}
+        return { message: "account has been created" };
       } catch (error) {
-        return `account failed: ${error.message}`
+        return `account failed: ${error.message}`;
       }
     },
 
@@ -47,7 +47,7 @@ const userResolver = {
     logout: (_, __, context) => {
       const token = context.token;
       if (token) {
-        tokens.add(token); 
+        tokens.add(token);
         return { message: "Logout successful" };
       }
       throw new Error("you are not logged in yet");
@@ -55,5 +55,5 @@ const userResolver = {
   },
 };
 
-export { tokens }; 
+export { tokens };
 export default userResolver;
